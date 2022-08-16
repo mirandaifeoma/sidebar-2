@@ -1,0 +1,234 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+body {
+    position: relative;
+    min-width: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+.sidebar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 78px;
+    background-color: black;
+    padding: 6px 14px;
+    transition: all 0.5s ease;
+}
+.sidebar.active{
+    width: 240px;
+}
+.sidebar .logo_content .logo {
+    color: white;
+    display: flex;
+    height: 50px;
+    width: 100%;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+}
+.sidebar.active .logo_content .logo{
+    opacity: 1;
+}
+.logo_content .logo i{
+    font-size: 30px;
+    margin-right: 5px;
+}
+.logo_content .logo .logo_name{
+    font-size: 20px;
+    font-family: 400;
+}
+
+#btn{
+    position: absolute;
+    left: 50%;
+    top: 6px;
+    font-size: 20px;
+    color: white;
+    height: 50px;
+    width: 50px;
+    text-align: center;
+    line-height: 50px;
+    transform: translateX(-50%);
+}
+.sidebar.active #btn{
+    left: 90%;
+}
+.sidebar ul{
+    margin-top: 20px;
+}
+.sidebar ul li{
+    position: relative;
+    list-style: none;
+    height: 50px;
+    width: 100%;
+    margin: 0 5px;
+    line-height: 50px;
+    border-radius: 12px;
+}
+.sidebar ul li .tooltip{
+    position: absolute;
+    height: 35px;
+    width: 122px;
+    background: #fff;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    left: 122px;
+    line-height: 35px;
+    top: 0;
+    text-align: center;
+    transform: translateY(-50%);
+    border-radius: 6px;
+    transition: 0s;
+    opacity: 0;
+    pointer-events:none;
+    display: block;
+}
+.sidebar.active ul li .tooltip{
+    display: none;
+}
+.sidebar ul li:hover .tooltip{
+       top: 50%;
+       transition: all 0.5s ease;
+       opacity: 1;
+
+}
+.sidebar ul li a{
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    transition: all 0.4s ease;
+    border-radius: 12px;
+    font-size: 13px;
+
+}
+.sidebar ul li a:hover{
+    color: blue;
+    background-color:beige;
+}
+.sidebar ul li a i{
+    height: 50px;
+    min-width: 50px;
+    border-radius: 12px;
+    line-height: 50px;
+    text-align: center;
+}
+.sidebar .link_name{
+    opacity: 0;
+    pointer-events: none;
+}
+.sidebar.active .link_name{
+    opacity: 1;
+    pointer-events: auto;
+}
+.sidebar ul li input{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    border-radius: 12px;
+    border: none;
+    outline: none;
+    background-color:bisque;
+    padding-left: 50px;
+    font-size: 18px;
+    color:black;
+}
+.sidebar ul li .bx-search{
+    position: absolute;
+    z-index: 99;
+    left: 12px;
+    top: 15px;
+    color: black;
+    font-size: 22px;
+    transform: all 0.5s ease;
+    
+}
+.sidebar ul li .bx-search:hover{
+    background:blue;
+    color:white;
+}
+.sidebar .profile_content{
+    position: absolute;
+    color: white;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+.sidebar .profile_content .profile{
+    position: relative;
+    padding: 10px 6px;
+    height: 60px;
+    background-color: bisque;
+}
+.profile_content .profile .profile_details{
+    display: flex;
+    align-items: center;
+}
+.profile .profile_details img{
+    height: 45px;
+    width: 45px;
+    border-radius: 2rem;
+    object-fit: cover;
+    opacity: 0;
+}
+.sidebar.active .profile_details img{
+    opacity: 1;
+}
+.profile .profile_details .name_job{
+    margin-left: 10px;
+    opacity: 0;
+}
+.sidebar.active .profile_details .name_job{
+    opacity: 1;
+}
+.profile_details .name_job .name{
+    font-size: 13px;
+    font-weight: 700;
+    color: black;
+}
+.name_job .job{
+    font-size: 13px;
+    font-weight: 700;
+    color:black;
+}
+.profile #log_out{
+    position: absolute;
+    left: 60%;
+    bottom: 5px;
+    transform: translateX(-50%);
+    min-width: 50px;
+    line-height: 50px;
+    font-size: 20px;
+    border-radius: 12px;
+    color: blue;
+}
+.sidebar.active .profile #log_out{
+    left: 88%;
+}
+.home_content{
+    position: absolute;
+    height: 100%;
+    width: calc(100% - 78px);
+    left: 78px;
+    transition: all 0.5s ease;
+   
+}
+.home_content .text{
+    font-size: 20px;
+    font-weight: 400;
+    margin: 12pxs;
+    color: blue;
+}
+.sidebar.active ~ .home_content{
+    width: calc(100% - 240px);
+    left: 240px;
+}
